@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IMCApp 2.0</string>
+    <string name="saludo">Si prega di compilare tutti i campi</string>
+    <string name="alturaHint">Altezza (cm)</string>
+    <string name="pesoHint">Peso (kg)</string>
+    <string name="calcularBt">Calcolare IMC</string>
+    <string name="msg_desnutrido">DENUTRITO</string>
+    <string name="msg_bajoPeso">BASSO PESO</string>
+    <string name="msg_obeso">OBESO</string>
+    <string name="msg_normal">NORMALE</string>
+    <string name="msg_sobrepeso">SOVRAPPESO</string>
+    <string name="activity2_firstLabel">Il vostro IBM é:</string>
+    <string name="activity2_secondLabel">Stato é:</string>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">IMCApp 2.0</string>
+    <string name="saludo">Please, complete all fields</string>
+    <string name="alturaHint">Height (cm)</string>
+    <string name="pesoHint">Weight (kg)</string>
+    <string name="calcularBt">Calculate IMC</string>
+    <string name="msg_desnutrido">SEVERELY UNDERWEIGHT</string>
+    <string name="msg_bajoPeso">UNDERWEIGHT</string>
+    <string name="msg_normal">NORMAL</string>
+    <string name="msg_sobrepeso">OVERWEIGHT</string>
+    <string name="msg_obeso">OBESE</string>
+    <string name="activity2_firstLabel">Your Body Mass Index is:</string>
+    <string name="activity2_secondLabel">Your state is:</string>
+</resources>
