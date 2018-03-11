@@ -11,7 +11,8 @@ import com.gmbdesign.controles.Acciones;
 import com.gmbdesign.main.R;
 import com.gmbdesign.modelos.Usuario;
 
-import static com.gmbdesign.controles.RecuperaDatosVistas.*;
+import static com.gmbdesign.controles.RecuperaDatosVistas.recuperaValoresIMC;
+import static com.gmbdesign.controles.RecuperaDatosVistas.recuperaValoresUsuario;
 
 
 /**
@@ -61,22 +62,6 @@ public class EscuchaBoton implements View.OnClickListener{
                 Intent intent = new Intent(contexto, ListaRangosActivity.class);
                 Activity actividad = (Activity) contexto;
                 actividad.startActivity(intent);
-
-                break; //finalizamos el case
-
-            case R.id.botonRegistro:
-
-                Log.d("TAG-IMC", "El usuario a pulsado el botonRegistrar");
-
-                Usuario usuario = recuperaValoresUsuario(contexto);
-
-                if(usuario != null) {
-                    Log.d("TAG-IMC", "Datos de registro introducidos correctamente en los campos");
-                    Acciones.registrarUsuario(contexto, usuario);
-
-                } else {
-                    Log.d("TAG-IMC", "El usuario está vacio");
-                }
 
                 break; //finalizamos el case
 

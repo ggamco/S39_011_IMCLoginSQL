@@ -11,7 +11,6 @@ import com.gmbdesign.activities.LogueoActivity;
 import com.gmbdesign.activities.PrincipalActivity;
 import com.gmbdesign.activities.ResultadoActivity;
 import com.gmbdesign.databases.BaseDatosUsuarios;
-import com.gmbdesign.main.MainActivity;
 import com.gmbdesign.modelos.Usuario;
 
 /**

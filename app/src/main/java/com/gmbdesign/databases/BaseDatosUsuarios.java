@@ -8,8 +8,6 @@ import android.util.Log;
 
 import com.gmbdesign.modelos.Usuario;
 
-import java.util.List;
-
 /**
  * Created by ggamboa on 15/2/17.
  */
