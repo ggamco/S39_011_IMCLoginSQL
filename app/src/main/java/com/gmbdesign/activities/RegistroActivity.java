@@ -62,7 +62,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         //preparamos el listener del boton registro
         Button botonRegistrar = (Button) findViewById(R.id.botonRegistro);
-        botonRegistrar.setOnClickListener(new EscuchaBoton(this));
+        botonRegistrar.setOnClickListener(this);
 
     }
 
@@ -80,6 +80,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        //TODO: No tiene mucho sentido esta lógica siendo el unico boton de la vista.
         int idVistaPulsada = v.getId();
         switch (idVistaPulsada) {
             case R.id.botonRegistro:

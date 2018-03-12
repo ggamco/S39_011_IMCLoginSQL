@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1009086251214",
+    "firebase_url": "https://calculoimc-5d938.firebaseio.com",
+    "project_id": "calculoimc-5d938",
+    "storage_bucket": "calculoimc-5d938.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009086251214:android:5c8f24ce23483cbb",
+        "android_client_info": {
+          "package_name": "com.gmbdesign.main"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009086251214-d1vb6vkq4m1m1ma61l8iut4i4ek7cpns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gmbdesign.main",
+            "certificate_hash": "1f3f351b5dda8cdf1914e32ceb2414fbf5a2e920"
+          }
+        },
+        {
+          "client_id": "1009086251214-7bpsa9hum2rfiac64252qk9m5q636dkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-k9_sWquZdSDOgHoTPxxzj5DlOHQFFns"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009086251214-7bpsa9hum2rfiac64252qk9m5q636dkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
