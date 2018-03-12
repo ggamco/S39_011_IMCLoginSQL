@@ -81,6 +81,13 @@ public class Acciones {
         }
     }
 
+    /**
+     * Metodo que valida si existe información de usuario en el formulario
+     *
+     * @param usuario
+     * @param v
+     * @return
+     */
     public static boolean validarFormularioUsuario(Usuario usuario, View v) {
         boolean valid = true;
         Log.d("TAG-IMC", "El usuario a pulsado el boton " + ((Button)v).getText());
@@ -91,5 +98,23 @@ public class Acciones {
             valid = false;
         }
         return valid;
+    }
+
+    /**
+     * Metodo que continua con el flujo normal de la aplicación llamando a la actividad principal
+     *
+     * @param contexto
+     */
+    public static void iniciarAplicacion(Context contexto, String flag){
+        //Almacenamos en el SharedPreferences la booleana de esRegistrado
+        SharedPreferences preferences = contexto.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(flag, true);
+        editor.commit();
+        //lanzamos la siguiente actividad
+        Activity actividad = (Activity) contexto;
+        Intent intent = new Intent(contexto, PrincipalActivity.class);
+        actividad.startActivity(intent);
+        actividad.finish();
     }
 }

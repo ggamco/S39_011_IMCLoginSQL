@@ -77,14 +77,12 @@ public class LogueoActivity extends AppCompatActivity implements View.OnClickLis
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "inicioDeSesionConUsuario:CORRECTO");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
+                            Acciones.iniciarAplicacion(LogueoActivity.this, "esLogueado");
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "inicioDeSesionConUsuario:failure", task.getException());
                             Toast.makeText(LogueoActivity.this, "La autenticación ha fallado",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
                         }
                     }
                 });
@@ -98,6 +96,4 @@ public class LogueoActivity extends AppCompatActivity implements View.OnClickLis
         EditText pass = (EditText) findViewById(R.id.passRegistro);
         pass.setTypeface(Typeface.DEFAULT);
     }
-
-
 }

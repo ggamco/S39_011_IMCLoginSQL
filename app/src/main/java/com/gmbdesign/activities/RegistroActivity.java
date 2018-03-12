@@ -1,5 +1,9 @@
 package com.gmbdesign.activities;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -101,7 +105,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "crearCuentaUsuarioConEmail:CORRECTO");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            Acciones.iniciarAplicacion(RegistroActivity.this, "esRegistrado");
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
