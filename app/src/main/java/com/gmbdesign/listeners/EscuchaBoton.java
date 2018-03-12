@@ -64,22 +64,6 @@ public class EscuchaBoton implements View.OnClickListener{
                 actividad.startActivity(intent);
 
                 break; //finalizamos el case
-
-            case R.id.botonLogin:
-
-                Log.d("TAG-IMC", "El usuario a pulsado el botonLogin");
-
-                Usuario usuarioLog = recuperaValoresUsuario(contexto);
-
-                if(usuarioLog != null) {
-                    Log.d("TAG-IMC", "Datos de acceso introducidos correctamente en los campos");
-                    Acciones.iniciarSesionUsuario(contexto, usuarioLog);
-
-                } else {
-                    Log.d("TAG-IMC", "El usuario está vacio");
-                }
-
-                break; //finalizamos el case
         }
 
     }

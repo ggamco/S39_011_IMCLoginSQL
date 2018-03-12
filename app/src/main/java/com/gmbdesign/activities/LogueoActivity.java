@@ -8,12 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.gmbdesign.controles.Acciones;
 import com.gmbdesign.listeners.EscuchaBoton;
 import com.gmbdesign.main.R;
+import com.gmbdesign.modelos.Usuario;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import static com.gmbdesign.controles.RecuperaDatosVistas.recuperaValoresUsuario;
 
 public class LogueoActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -49,6 +57,39 @@ public class LogueoActivity extends AppCompatActivity implements View.OnClickLis
         botonAcceso.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        Usuario usuario = recuperaValoresUsuario(this);
+        boolean esValido = Acciones.validarFormularioUsuario(usuario, v);
+        if(esValido) {
+            Log.d("TAG-IMC", "Datos de acceso introducidos correctamente en los campos");
+            iniciarSesionUsuarioExistente(usuario);
+        } else {
+            Log.d("TAG-IMC", "El usuario está vacio");
+        }
+    }
+    
+    private void iniciarSesionUsuarioExistente(Usuario usuario){
+        mAuth.signInWithEmailAndPassword(usuario.getEmail(), usuario.getPassword())
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "inicioDeSesionConUsuario:CORRECTO");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "inicioDeSesionConUsuario:failure", task.getException());
+                            Toast.makeText(LogueoActivity.this, "La autenticación ha fallado",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    }
+                });
+    }
+
     /**
      * La fuente por defecto del editText tipo password es courrier, con este metodo
      * solucionamos esteticamente el problema.
@@ -58,8 +99,5 @@ public class LogueoActivity extends AppCompatActivity implements View.OnClickLis
         pass.setTypeface(Typeface.DEFAULT);
     }
 
-    @Override
-    public void onClick(View v) {
 
-    }
 }

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.gmbdesign.controles.Acciones;
 import com.gmbdesign.listeners.EscuchaBoton;
 import com.gmbdesign.main.R;
 import com.gmbdesign.modelos.Usuario;
@@ -80,13 +81,13 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        //TODO: No tiene mucho sentido esta lógica siendo el unico boton de la vista.
-        int idVistaPulsada = v.getId();
-        switch (idVistaPulsada) {
-            case R.id.botonRegistro:
-                Log.d("TAG-IMC", "El usuario a pulsado el botonRegistrar");
-                ValidarFormularioUsuario();
-                break;
+        Usuario usuario = recuperaValoresUsuario(this);
+        boolean esValidado = Acciones.validarFormularioUsuario(usuario, v);
+        if (esValidado){
+            Log.d(TAG, "El usuario ha sido validado, pasamos a crear su cuenta: " + usuario.getEmail());
+            crearCuentaUsuario(usuario);
+        } else {
+            Log.d("TAG-IMC", "El usuario está vacio");
         }
     }
 
@@ -109,24 +110,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
-    }
-
-    private boolean ValidarFormularioUsuario() {
-        boolean valid = true;
-
-        Log.d("TAG-IMC", "El usuario a pulsado el botonRegistrar");
-
-        Usuario usuario = recuperaValoresUsuario(this);
-
-        if (usuario != null) {
-            Log.d("TAG-IMC", "Datos de registro introducidos correctamente en los campos");
-            crearCuentaUsuario(usuario);
-
-        } else {
-            Log.d("TAG-IMC", "El usuario está vacio");
-        }
-
-        return valid;
     }
 
     /**
