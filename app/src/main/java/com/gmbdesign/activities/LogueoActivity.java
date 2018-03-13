@@ -14,6 +14,7 @@ import com.gmbdesign.controles.Acciones;
 import com.gmbdesign.listeners.EscuchaBoton;
 import com.gmbdesign.main.R;
 import com.gmbdesign.modelos.Usuario;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -49,6 +50,11 @@ public class LogueoActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         };
+
+        //cargamos el Banner
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //cargamos la mejora estetica en el HintText del password
         solucionFuenteHint();
@@ -93,7 +99,7 @@ public class LogueoActivity extends AppCompatActivity implements View.OnClickLis
      * solucionamos esteticamente el problema.
      */
     private void solucionFuenteHint(){
-        EditText pass = (EditText) findViewById(R.id.passRegistro);
+        EditText pass = (EditText) findViewById(R.id.passLogin);
         pass.setTypeface(Typeface.DEFAULT);
     }
 }
