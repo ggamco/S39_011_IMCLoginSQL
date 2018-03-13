@@ -33,38 +33,25 @@ public class PrincipalActivity extends AppCompatActivity implements RewardedVide
         //Se dibuja la actividad principal
         setContentView(R.layout.activity_principal);
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        //app_id
+        MobileAds.initialize(this, getResources().getString(R.string.app_id_ad_unit_id));
+        //cargamos los videos de publicidad
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
-
-
         //cargamos la publicidad Interstitial
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.inters_ad_unit_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 mInterstitialAd.show();
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
+                loadVideoAd();
             }
 
             @Override
             public void onAdClosed() {
+                //mInterstitialAd.loadAd(new AdRequest.Builder().build());
                 if(videoLoaded){
                     mRewardedVideoAd.show();
                 }
@@ -87,10 +74,21 @@ public class PrincipalActivity extends AppCompatActivity implements RewardedVide
         listar.setOnClickListener(escuchaBoton);
     }
 
+    private void loadVideoAd(){
+        mRewardedVideoAd.loadAd(getResources().getString(R.string.videos_ad_unit_id), new AdRequest.Builder().build());
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
-        mAuth.signOut();
+        //mAuth.signOut();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        loadVideoAd();
     }
 
     @Override

@@ -11,5 +11,18 @@
     <string name="msg_obeso">OBESE</string>
     <string name="activity2_firstLabel">Your Body Mass Index is:</string>
     <string name="activity2_secondLabel">Your state is:</string>
+
+    <!--PRODUCCION-->
+    <!--<string name="app_id_ad_unit_id" translatable="false">ca-app-pub-3117356186660988~4685691338</string>-->
+    <!--<string name="banner_ad_unit_id" translatable="false">ca-app-pub-3117356186660988/9143811098</string>-->
+    <!--<string name="inters_ad_unit_id" translatable="false">ca-app-pub-3117356186660988/1596493567</string>-->
+    <!--<string name="videos_ad_unit_id" translatable="false">ca-app-pub-3117356186660988/1592624130</string>-->
+    <!--PRODUCCION-->
+
+    <!--DESARROLLO-->
+    <string name="app_id_ad_unit_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="inters_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="videos_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <!--DESARROLLO-->
 </resources>
